@@ -6,10 +6,10 @@ Gem::Specification.new do |spec|
   spec.version       = VERSION
   spec.authors       = ["Katsuyoshi Ito"]
   spec.email         = ["kito@itosoft.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{Color selection palette.}
+  spec.summary       = %q{Color selection palette.}
   spec.homepage      = ""
-  spec.license       = ""
+  spec.license       = "MIT"
 
   files = []
   files << 'README.md'
