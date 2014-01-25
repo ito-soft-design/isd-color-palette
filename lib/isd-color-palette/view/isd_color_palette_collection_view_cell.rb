@@ -5,9 +5,7 @@ class ISDColorPaletteCollectionViewCell < UICollectionViewCell
   
   attr_reader :inner_layer
   
-  BASE_COLOR            = :dark_gray.uicolor
-  BORDER_COLOR          = :white.uicolor
-  SELECTED_BORDER_COLOR = :blue.uicolor
+  attr_reader :border_color, :selected_border_color
   
 =begin
   def initWithFrame frame
@@ -24,6 +22,9 @@ class ISDColorPaletteCollectionViewCell < UICollectionViewCell
 =end
 
   def awakeFromNib
+    @border_color          = :white.uicolor
+    @selected_border_color = :blue.uicolor
+
     l = self.contentView.layer
     l.borderColor = :clear.uicolor.cgcolor
     l.borderWidth = 3
@@ -32,14 +33,14 @@ class ISDColorPaletteCollectionViewCell < UICollectionViewCell
     
     self.backgroundView = UIView.new
     l = self.backgroundView.layer
-    l.borderColor = BORDER_COLOR.cgcolor
+    l.borderColor = self.border_color.cgcolor
     l.borderWidth = 2
     l.cornerRadius = 4
     l.shadowOpacity = 0.5
     
     self.selectedBackgroundView = UIView.new
     l = self.selectedBackgroundView.layer
-    l.borderColor = SELECTED_BORDER_COLOR.cgcolor
+    l.borderColor = self.selected_border_color.cgcolor
     l.borderWidth = 2
     l.cornerRadius = 4
   end
