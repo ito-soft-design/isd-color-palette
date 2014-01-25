@@ -2,6 +2,10 @@
 $:.unshift("/Library/RubyMotion/lib")
 require 'motion/project/template/ios'
 require './lib/isd-color-palette'
+require 'rubygems'
+require 'bundler'
+Bundler.require
+
 
 begin
   require 'bundler'
