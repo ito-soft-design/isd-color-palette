@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-describe ISDColorPaletteContainerViewController do
+describe ISDRgbaSliderView do
 
   it "should be successful" do
     true.should == true

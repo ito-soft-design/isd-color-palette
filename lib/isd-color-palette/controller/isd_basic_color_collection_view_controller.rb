@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 class ISDBasicColorCollectionViewController < UICollectionViewController
 
-  
   def viewDidLoad
     super
     @system_colors = [:white, :black, :dark_gray, :light_gray, :gray,
@@ -44,23 +43,6 @@ class ISDBasicColorCollectionViewController < UICollectionViewController
     else
     end
     cell
-  end
-  
-  def collectionView collectionView, didSelectItemAtIndexPath:indexPath
-    unless editing?
-      project = @manager.projects[indexPath.row]
-      project.select
-      ProjectManager.shared_manager.current_project = project
-      
-      if Device.ipad?
-        app_delegate.show_edit_project project
-      else
-        app_delegate.show_run_project project
-      end
-    else
-      cell = self.collectionView.cellForItemAtIndexPath indexPath
-      show_or_hide_menu cell
-    end
   end
   
   def collectionView collectionView, didSelectItemAtIndexPath:indexPath

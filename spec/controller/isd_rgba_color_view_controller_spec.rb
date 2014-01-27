@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-describe IsdColorRecentColorCollectionViewController do
+describe ISDRgbaColorViewController do
 
   it "should be successful" do
     true.should == true

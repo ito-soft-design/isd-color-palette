@@ -5,6 +5,8 @@ class ISDColorPaletteContainerViewController < UIViewController
   attr_accessor :rgbaColorView      # IBOutlet UIView
   attr_accessor :webSafeColorView   # IBOutlet UIView
   
+  attr_reader :views
+  
 =begin
   def initWithNibName nibNameOrNil, bundle:nibBundleOrNil
     super
@@ -12,12 +14,25 @@ class ISDColorPaletteContainerViewController < UIViewController
   end
 =end
   
-=begin
   def viewDidLoad
     super
+    @views = [
+                self.basicColorView,
+                self.rgbaColorView,
+                self.webSafeColorView
+              ]
+    
+    select_view self.basicColorView
   end
-=end
-
+  
+  def select_view view
+    self.views.each do |v|
+      if v
+        v.hidden = v != view
+      end
+    end
+  end
+  
 =begin
   def viewDidUnload
     super
@@ -65,5 +80,10 @@ class ISDColorPaletteContainerViewController < UIViewController
     UIInterfaceOrientationMaskPortrait
   end
 =end
+
+  def didChangeValue sender # IBAction
+    view = self.views[sender.selectedSegmentIndex]
+    select_view view
+  end
 
 end

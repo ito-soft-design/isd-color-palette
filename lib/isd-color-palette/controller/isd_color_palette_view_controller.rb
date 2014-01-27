@@ -35,7 +35,9 @@ class ISDColorPaletteViewController < UIViewController
   end
 
   def selectedColor= color
+    willChangeValueForKey "selectedColor"
     @selectedColor = color
+    didChangeValueForKey "selectedColor"
     set_color color
   end
 
@@ -113,6 +115,7 @@ class ISDColorPaletteViewController < UIViewController
       colorWellView.layer.backgroundColor = color.CGColor
       colorNameLabel.text = nil
     end
+    
   end
   
 end
