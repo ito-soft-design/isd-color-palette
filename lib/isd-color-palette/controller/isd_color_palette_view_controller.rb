@@ -7,6 +7,10 @@ class ISDColorPaletteViewController < UIViewController
   attr_accessor :selectedColor
   
   attr_accessor :selected_color_block   # -> {|color| }
+  
+  # If it's true, return nil when the color is the clear color.
+  attr_accessor :return_nil
+  
 
   attr_reader :color_layer, :solid_layer
   
@@ -104,13 +108,10 @@ class ISDColorPaletteViewController < UIViewController
   end
 =end
 
-  def clearColor sender # IBAction
-    didChangeColor nil
-  end
-
   def didChangeColor color
     self.selectedColor = color
     if self.selected_color_block
+      color = nil if self.return_nil && color == :clear.uicolor
       self.selected_color_block.call color
     end
   end

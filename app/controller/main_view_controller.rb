@@ -69,7 +69,17 @@ class MainViewController < UIViewController
     self.navigationController.pushViewController c, animated:true
   end
   
+  def showColorPaletteWithNil sender   # IBAction
+    c = ISDColorPaletteViewController.colorPaletteViewController
+    c.return_nil = true
+    c.selectedColor = self.view.backgroundColor
+    c.selected_color_block = Proc.new {|color| did_select_color color }
+    self.navigationController.pushViewController c, animated:true
+  end
+
+  
   def did_select_color color
+p color
     self.view.backgroundColor = color
   end
   

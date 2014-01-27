@@ -95,9 +95,8 @@
                                 <rect key="frame" x="20" y="9" width="280" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
-                                    <segment title="BASIC"/>
+                                    <segment title="LIST"/>
                                     <segment title="RGBA"/>
-                                    <segment title="RGB"/>
                                 </segments>
                                 <connections>
                                     <action selector="didChangeValue:" destination="DDB-9Z-aLd" eventType="valueChanged" id="VvE-7X-s36"/>

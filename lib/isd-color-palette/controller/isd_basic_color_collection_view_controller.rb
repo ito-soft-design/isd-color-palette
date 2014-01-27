@@ -110,7 +110,7 @@ class ISDBasicColorCollectionViewController < UICollectionViewController
   
   def save_recent_colors
     a = @recent_colors.map do |c|
-      c.to_serialize
+      (c || :clear.uicolor).to_serialize
     end
     # limit 7 x 3
     a.uniq!

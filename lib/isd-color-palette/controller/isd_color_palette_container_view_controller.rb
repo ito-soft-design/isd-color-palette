@@ -3,7 +3,6 @@ class ISDColorPaletteContainerViewController < UIViewController
 
   attr_accessor :basicColorView     # IBOutlet UIView
   attr_accessor :rgbaColorView      # IBOutlet UIView
-  attr_accessor :webSafeColorView   # IBOutlet UIView
   
   attr_reader :views
   
@@ -18,8 +17,7 @@ class ISDColorPaletteContainerViewController < UIViewController
     super
     @views = [
                 self.basicColorView,
-                self.rgbaColorView,
-                self.webSafeColorView
+                self.rgbaColorView
               ]
     
     select_view self.basicColorView
