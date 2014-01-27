@@ -8,5 +8,6 @@ gem 'sugarcube', :require => [
       'sugarcube-core',
       'sugarcube-localized',
       'sugarcube-color',
-      'sugarcube-uikit'
+      'sugarcube-uikit',
+      'sugarcube-nsuserdefaults'
     ]

@@ -21,15 +21,12 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gFG-ke-7ot">
-                                        <rect key="frame" x="10" y="8" width="238" height="24"/>
+                                        <rect key="frame" x="10" y="8" width="300" height="24"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1qq-AV-Gia">
-                                                <rect key="frame" x="12" y="3" width="212" height="21"/>
+                                                <rect key="frame" x="12" y="3" width="276" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="212" id="yZy-fj-3sh"/>
-                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -37,30 +34,18 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="1qq-AV-Gia" secondAttribute="trailing" constant="14" id="AOx-LM-Gau"/>
+                                            <constraint firstAttribute="trailing" secondItem="1qq-AV-Gia" secondAttribute="trailing" constant="12" id="AOx-LM-Gau"/>
                                             <constraint firstAttribute="bottom" secondItem="1qq-AV-Gia" secondAttribute="bottom" id="B90-wi-5P8"/>
                                             <constraint firstItem="1qq-AV-Gia" firstAttribute="leading" secondItem="gFG-ke-7ot" secondAttribute="leading" constant="12" id="zf2-Xe-AEB"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PeR-C5-G1R">
-                                        <rect key="frame" x="256" y="7" width="53" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Clear">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="clearColor:" destination="ccp-rq-upX" eventType="touchUpInside" id="MXm-cc-Fci"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.92941182851791382" green="0.92941182851791382" blue="0.92941182851791382" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
-                                    <constraint firstItem="1qq-AV-Gia" firstAttribute="baseline" secondItem="PeR-C5-G1R" secondAttribute="baseline" id="Bbf-C2-2kE"/>
                                     <constraint firstItem="gFG-ke-7ot" firstAttribute="leading" secondItem="IJv-WM-KxU" secondAttribute="leading" constant="10" id="C3a-1f-t3g"/>
-                                    <constraint firstAttribute="trailing" secondItem="PeR-C5-G1R" secondAttribute="trailing" constant="11" id="MWF-di-hTk"/>
                                     <constraint firstItem="gFG-ke-7ot" firstAttribute="top" secondItem="IJv-WM-KxU" secondAttribute="top" constant="8" id="V9p-79-6Ni"/>
+                                    <constraint firstAttribute="trailing" secondItem="gFG-ke-7ot" secondAttribute="trailing" constant="10" id="hXq-rz-wSv"/>
                                     <constraint firstAttribute="bottom" secondItem="gFG-ke-7ot" secondAttribute="bottom" id="mEI-b6-86q"/>
-                                    <constraint firstItem="PeR-C5-G1R" firstAttribute="leading" secondItem="gFG-ke-7ot" secondAttribute="trailing" constant="8" symbolic="YES" id="wgY-Kd-4fc"/>
                                 </constraints>
                             </view>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a52-Ds-MNa">
@@ -106,7 +91,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="472"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="e4K-6O-TNV">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="e4K-6O-TNV">
                                 <rect key="frame" x="20" y="9" width="280" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
@@ -139,13 +124,14 @@
                         <constraints>
                             <constraint firstItem="cGn-55-a2a" firstAttribute="bottom" secondItem="pHC-ea-RXf" secondAttribute="bottom" id="4lv-qB-cQ5"/>
                             <constraint firstItem="cGn-55-a2a" firstAttribute="trailing" secondItem="pHC-ea-RXf" secondAttribute="trailing" id="9c3-sq-Ywi"/>
-                            <constraint firstItem="cGn-55-a2a" firstAttribute="centerX" secondItem="e4K-6O-TNV" secondAttribute="centerX" id="Bgu-3M-VuG"/>
                             <constraint firstItem="cGn-55-a2a" firstAttribute="top" secondItem="pHC-ea-RXf" secondAttribute="top" id="GRe-Y6-u8R"/>
-                            <constraint firstItem="cGn-55-a2a" firstAttribute="top" secondItem="e4K-6O-TNV" secondAttribute="bottom" constant="8" symbolic="YES" id="H4w-YD-w3h"/>
                             <constraint firstItem="cGn-55-a2a" firstAttribute="leading" secondItem="cjl-ZX-JRH" secondAttribute="leading" id="Jm3-lE-5Vg"/>
+                            <constraint firstItem="e4K-6O-TNV" firstAttribute="centerX" secondItem="cGn-55-a2a" secondAttribute="centerX" id="NhE-fH-l51"/>
                             <constraint firstAttribute="trailing" secondItem="cGn-55-a2a" secondAttribute="trailing" id="UZU-7q-FPA"/>
                             <constraint firstItem="cGn-55-a2a" firstAttribute="leading" secondItem="pHC-ea-RXf" secondAttribute="leading" id="fPo-5n-uqt"/>
+                            <constraint firstItem="e4K-6O-TNV" firstAttribute="leading" secondItem="cjl-ZX-JRH" secondAttribute="leading" constant="20" symbolic="YES" id="lkv-gH-vLc"/>
                             <constraint firstAttribute="bottom" secondItem="cGn-55-a2a" secondAttribute="bottom" id="p4C-fq-dJt"/>
+                            <constraint firstItem="cGn-55-a2a" firstAttribute="top" secondItem="e4K-6O-TNV" secondAttribute="bottom" constant="8" symbolic="YES" id="qcC-Ty-Fhv"/>
                             <constraint firstItem="cGn-55-a2a" firstAttribute="top" secondItem="cjl-ZX-JRH" secondAttribute="top" constant="45" id="yag-3i-hpM"/>
                         </constraints>
                     </view>

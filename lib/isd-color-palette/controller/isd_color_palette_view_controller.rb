@@ -7,6 +7,8 @@ class ISDColorPaletteViewController < UIViewController
   attr_accessor :selectedColor
   
   attr_accessor :selected_color_block   # -> {|color| }
+
+  attr_reader :color_layer, :solid_layer
   
   class << self
   
@@ -30,6 +32,18 @@ class ISDColorPaletteViewController < UIViewController
     l.borderColor = :black.uicolor.cgcolor
     l.borderWidth = 2
     l.cornerRadius = 4
+    l.masksToBounds = true
+    @color_layer = l
+    
+    @solid_layer = CALayer.new
+    r2 = Math.sqrt 2
+    w = h = @color_layer.frame.size.height * r2
+    x = CGRectGetMaxX(@color_layer.bounds) - w / 2
+    y = -h / 2
+    @solid_layer.frame = CGRectMake(x, y, w, h)
+    rad = 45 * Math::PI / 180
+    @solid_layer.transform = CATransform3DMakeRotation(rad, 0, 0, 1)
+    @color_layer.addSublayer @solid_layer
     
     set_color self.selectedColor
   end
@@ -107,15 +121,15 @@ class ISDColorPaletteViewController < UIViewController
   def set_color color
     return unless colorWellView
     
-    case color
-    when nil, UIColor.clearColor
-      colorWellView.layer.backgroundColor = nil
-      colorNameLabel.text = "None"._
-    else
-      colorWellView.layer.backgroundColor = color.CGColor
-      colorNameLabel.text = nil
-    end
-    
+    color ||= :clear.uicolor
+
+    self.color_layer.backgroundColor = color.uicolor.cgcolor
+    self.color_layer.removeAllAnimations
+    self.solid_layer.backgroundColor = color.uicolor(1).cgcolor
+    self.solid_layer.removeAllAnimations
+
+    colorNameLabel.text = color.color_name
+    colorNameLabel.textColor = color.monochrome.red >= 0.5 ? :black.uicolor : :white.uicolor
   end
   
 end
