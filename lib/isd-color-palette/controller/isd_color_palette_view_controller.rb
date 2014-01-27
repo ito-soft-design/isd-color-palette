@@ -129,7 +129,7 @@ class ISDColorPaletteViewController < UIViewController
     self.solid_layer.backgroundColor = color.uicolor(1).cgcolor
     self.solid_layer.removeAllAnimations
 
-    colorNameLabel.text = color.color_name
+    colorNameLabel.text = color == :clear.uicolor ? "Clear"._ : color.color_name._
     colorNameLabel.textColor = color.monochrome.red >= 0.5 ? :black.uicolor : :white.uicolor
   end
   
