@@ -1,29 +1,63 @@
-# isd-color-palette
+# ISDColorPalette
 
-TODO: Write a gem description
+ISDColorPalette is a color selection panel for the RubyMotion iOS app.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+```ruby
+# in Gemfile
+gem 'isd-color-palette'
+```
 
-    gem 'isd-color-palette'
+ISDColorPalette uses Sugarcube and BubbleWrap.
 
-And then execute:
+```ruby
+# in Gemfile
+gem 'bubble-wrap'
+# minimum set
+gem 'sugarcube', :require => [
+      'sugarcube-core',
+      'sugarcube-localized',
+      'sugarcube-color',
+      'sugarcube-uikit',
+      'sugarcube-nsuserdefaults'
+    ]
+```
 
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install isd-color-palette
 
 ## Usage
 
-TODO: Write usage instructions here
 
-## Contributing
+```ruby
+# attr_accessor :color
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+# get a controller.
+c = ISDColorPaletteViewController.colorPaletteViewController
+# set an initial color.
+c.selectedColor = self.color
+# set a callback.
+c.selected_color_block = Proc.new {|color| did_select_color color }
+# push the controller.
+self.navigationController.pushViewController c, animated:true
+```
+
+If you want to get nil instead of the clear color, set #return_nil true.
+
+```
+  c.return_nil = true
+```
+
+The selected_color_block is called after a color is selected.
+
+```
+def did_select_color color
+  p color
+  self.color = color
+end
+```
+
+## License
+
+MIT License  
+
+
