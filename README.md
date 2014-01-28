@@ -2,6 +2,8 @@
 
 ISDColorPalette is a color selection panel for the RubyMotion iOS app.
 
+![Screenshot](https://raw.github.com/ito-soft-design/isd-color-palette/master/screenshots/screenshot-0.1.1.png)
+
 ## Installation
 
 ```ruby
