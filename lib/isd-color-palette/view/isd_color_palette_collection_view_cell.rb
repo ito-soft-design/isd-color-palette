@@ -62,7 +62,9 @@ class ISDColorPaletteCollectionViewCell < UICollectionViewCell
     @color = color
 
     self.color_layer.backgroundColor = color.cgcolor
+    self.color_layer.removeAllAnimations
     self.solid_layer.backgroundColor = color.uicolor(1.0).cgcolor
+    self.solid_layer.removeAllAnimations
   end
   
 end
