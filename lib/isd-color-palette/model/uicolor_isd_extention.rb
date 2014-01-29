@@ -26,6 +26,8 @@ class UIColor
   end
   
   def color_name
+    return "Clear"._ if self.alpha == 0
+
     name = system_name || css_name || hex
     name = name.to_s unless name.is_a? String
     name.underscore.gsub(/_color/, "").gsub(/_/, " ").capitalize
