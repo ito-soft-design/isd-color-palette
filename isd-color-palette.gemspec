@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-VERSION = "0.1.1"
+VERSION = "0.1.2"
 
 Gem::Specification.new do |spec|
   spec.name          = "isd-color-palette"
