@@ -26,19 +26,31 @@ class ISDRgbaSliderView < UIView
 =end
 
   def awakeFromNib
+  
     l = self.layer
     l.borderColor = :white.uicolor.cgcolor
     l.borderWidth = 3
     l.cornerRadius = 4
-
+  
+    # setup slider
+    
     @slider = UISlider.new
+    @slider.frame = CGRectInset sliderBaseView.bounds, 0, 8
     rad = -90 * Math::PI / 180
     @slider.transform = CGAffineTransformMakeRotation(rad)
-    @slider.frame = CGRectInset sliderBaseView.bounds, 0, 8
+    sliderBaseView << @slider
+
     @slider.addTarget self, action:"didChangeValue:", forControlEvents:UIControlEventValueChanged
 
-    sliderBaseView << @slider
   end
+  
+  def layoutSubviews
+    super
+    return unless self.slider
+    
+    self.slider.frame = CGRectInset self.sliderBaseView.bounds, 0, 8
+  end
+  
 
   def color= color
     @color = color
