@@ -124,7 +124,7 @@ class ISDColorPaletteViewController < UIViewController
     
     color ||= :clear.uicolor
 
-    self.color_layer.backgroundColor = color.uicolor.cgcolor
+    self.color_layer.backgroundColor = color.cgcolor
     self.color_layer.removeAllAnimations
     self.solid_layer.backgroundColor = color.uicolor(1).cgcolor
     self.solid_layer.removeAllAnimations
