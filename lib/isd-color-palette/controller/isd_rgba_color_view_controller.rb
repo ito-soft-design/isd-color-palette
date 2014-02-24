@@ -106,13 +106,28 @@ class ISDRgbaColorViewController < UIViewController
   end
   
   def didChangeColor sender
+    cancel_did_change_color
+    schedule_did_change_color sender
+  end
+  
+  private
+  
+  def schedule_did_change_color sender
+    self.performSelector "force_did_change_color:", withObject:sender, afterDelay:0.2
+  end
+  
+  def cancel_did_change_color
+    self.class.cancelPreviousPerformRequestsWithTarget self
+  end
+  
+  def force_did_change_color sender
     c = self.parentViewController.parentViewController
     color = UIColor.colorWithRed self.views[0].color_value,
                                      green:self.views[1].color_value,
                                       blue:self.views[2].color_value,
                                      alpha:self.views[3].color_value
     parentViewController.parentViewController.didChangeColor color
-  end
+   end
 
 
 end
