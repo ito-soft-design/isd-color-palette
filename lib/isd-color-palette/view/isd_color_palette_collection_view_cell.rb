@@ -24,19 +24,21 @@ class ISDColorPaletteCollectionViewCell < UICollectionViewCell
     @border_color          = :white.uicolor
     @selected_border_color = :blue.uicolor
 
-    l = self.contentView.layer
+    l = CALayer.layer
     l.borderColor = :clear.uicolor.cgcolor
     l.borderWidth = 3
     l.cornerRadius = 2
     l.masksToBounds = true
     l.frame = CGRectInset self.contentView.bounds, 3, 3
     @color_layer = l
+    self.contentView.layer.addSublayer @color_layer
     
     @solid_layer = CALayer.new
-    w = @color_layer.frame.size.width
-    h = @color_layer.frame.size.height
-    x = CGRectGetMaxX(@color_layer.bounds) - w / 2
-    y = -h / 2
+    f = @color_layer.bounds
+    w = f.size.width
+    h = f.size.height
+    x = CGRectGetMaxX(f) - w / 2
+    y = CGRectGetMinY(f) - h / 2
     @solid_layer.frame = CGRectMake(x, y, w, h)
     rad = 45 * Math::PI / 180
     @solid_layer.transform = CATransform3DMakeRotation(rad, 0, 0, 1)
@@ -49,6 +51,9 @@ class ISDColorPaletteCollectionViewCell < UICollectionViewCell
     l.cornerRadius = 4
     l.shadowOpacity = 0.5
     l.masksToBounds = true
+    l.shadowPath = UIBezierPath.bezierPathWithRect(self.bounds).CGPath
+    l.shouldRasterize = true
+    l.rasterizationScale = UIScreen.mainScreen.scale
     
     self.selectedBackgroundView = UIView.new
     l = self.selectedBackgroundView.layer
