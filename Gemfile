@@ -10,5 +10,3 @@ gem 'sugarcube', :require => [
       'sugarcube-uikit',
       'sugarcube-nsuserdefaults'
     ]
-
-ruby '2.0.0'

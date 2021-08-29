@@ -1,9 +1,9 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    bubble-wrap (1.8.0)
-    rake (10.4.2)
-    sugarcube (3.3.5)
+    bubble-wrap (1.9.7)
+    rake (13.0.6)
+    sugarcube (4.0.0)
 
 PLATFORMS
   ruby
@@ -12,3 +12,6 @@ DEPENDENCIES
   bubble-wrap
   rake
   sugarcube
+
+BUNDLED WITH
+   2.1.4
